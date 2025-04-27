@@ -50,6 +50,8 @@ public class GestorCSV {
         }
 
         System.out.println("> Índice creado para la columna: " + nombreColumna);
+
+        //indices[indiceColumna].imprimirEstado();
     }
 
     public String[][] buscarPorIndice(String nombreColumna, String valor) {
