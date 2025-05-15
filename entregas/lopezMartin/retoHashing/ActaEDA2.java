@@ -2,11 +2,15 @@ package entregas.lopezMartin.retoHashing;
 
 public class ActaEDA2 {
 
-    private Estudiante[] estudiantes;
-    private String codigoActa;
+    private final Estudiante[] estudiantes;
+    private final String codigoActa;
 
     public ActaEDA2(Estudiante[] estudiantes) {
-        this.estudiantes = estudiantes;
+        
+        this.estudiantes = new Estudiante[estudiantes.length];
+        for (int i = 0; i < estudiantes.length; i++) {
+            this.estudiantes[i] = estudiantes[i];
+        }
         this.codigoActa = generarCodigoActa();
     }
 
