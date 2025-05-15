@@ -15,6 +15,20 @@ public class Ejemplo {
         ActaEDA2 acta = new ActaEDA2(estudiantes);
         System.out.println("Código del acta: " + acta.getCodigoActa());
 
+        String codigoOriginal = acta.getCodigoActa();
+
+        estudiantes[0] = new Estudiante("Juan", "Pérez", 10.0, 10.0, 10.0, 10.0);
+
+        ActaEDA2 actaModificada = new ActaEDA2(estudiantes);
+        String codigoModificado = actaModificada.getCodigoActa();
+        System.out.println("Código del nuevo acta: " + codigoModificado);
+
+        if (!codigoOriginal.equals(codigoModificado)) {
+            System.out.println("El acta ha sido modificada");
+        } else {
+            System.out.println("El acta no ha sido modificada");
+        }
+
     }
     
 }
