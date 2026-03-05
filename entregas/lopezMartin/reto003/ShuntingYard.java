@@ -14,7 +14,7 @@ public class ShuntingYard {
     }
     
     public static String shuntingYard(String expresionInfija, Scanner sc) {
-        Stack <Character> pila = new Stack<>();
+        Stack <Character> pilaOperadores = new Stack<>();
         Stack <Character> salida = new Stack<>();
         char[] tokens = tokenizar(expresionInfija);
 
@@ -25,28 +25,28 @@ public class ShuntingYard {
                 salida.push(tokens[i]);
             } else {
                 if (esOperador(tokens[i])) {
-                    while(!pila.isEmpty() && esOperador(pila.peek()) && precedencia(pila.peek()) >= precedencia(tokens[i])) {
-                        salida.push(pila.pop());
+                    while(!pilaOperadores.isEmpty() && esOperador(pilaOperadores.peek()) && precedencia(pilaOperadores.peek()) >= precedencia(tokens[i])) {
+                        salida.push(pilaOperadores.pop());
                     }
-                    pila.push(tokens[i]);
+                    pilaOperadores.push(tokens[i]);
                 } else if (tokens[i] == '(') {
-                    pila.push(tokens[i]);
+                    pilaOperadores.push(tokens[i]);
                 } else {
-                    while (pila.peek() != '(') {
-                        salida.push(pila.pop());
+                    while (pilaOperadores.peek() != '(') {
+                        salida.push(pilaOperadores.pop());
                     }
-                    pila.pop();
+                    pilaOperadores.pop();
                 }
             }
             
-            imprimirEstadoPilas(pila, salida);
+            imprimirEstadopilaOperadoress(pilaOperadores, salida);
             System.out.println("Presiona ENTER para continuar...");
             sc.nextLine();
         }
 
-        while (!pila.isEmpty()) {
-            salida.push(pila.pop());
-            imprimirEstadoPilas(pila, salida);
+        while (!pilaOperadores.isEmpty()) {
+            salida.push(pilaOperadores.pop());
+            imprimirEstadopilaOperadoress(pilaOperadores, salida);
             System.out.println("Presiona ENTER para continuar...");
             sc.nextLine();
         }
@@ -90,9 +90,9 @@ public class ShuntingYard {
         }
     }
     
-    private static void imprimirEstadoPilas(Stack<Character> pila, Stack<Character> salida) {
-        System.out.println("Pila de operadores: " + pila);
-        System.out.println("Pila de salida: " + salida);
+    private static void imprimirEstadopilaOperadoress(Stack<Character> pilaOperadores, Stack<Character> salida) {
+        System.out.println("pilaOperadores de operadores: " + pilaOperadores);
+        System.out.println("pilaOperadores de salida: " + salida);
         System.out.println("----------------------");
     }
 }
