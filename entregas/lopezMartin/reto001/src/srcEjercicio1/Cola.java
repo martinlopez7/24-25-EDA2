@@ -3,26 +3,26 @@ public class Cola {
 
     private NodoFrame primero;
     private NodoFrame ultimo;
-    private int tamaño;
+    private int size;
 
     public Cola(){
         this.primero = null;
         this.ultimo = null;
-        this.tamaño = 0;
+        this.size = 0;
     }
 
     public void enqueue(){
 
         NodoFrame nuevoNodo = new NodoFrame();
 
-        if(this.tamaño==0){
+        if(this.size==0){
             primero = nuevoNodo;
             ultimo = nuevoNodo;
         }else{
             ultimo.setSiguiente(nuevoNodo);
             ultimo = nuevoNodo;
         }
-        this.tamaño++;
+        this.size++;
     }
 
     public Frame[] dequeue(){
@@ -32,7 +32,7 @@ public class Cola {
             primero = primero.getSiguiente();
             frames[1] = primero;
             primero = primero.getSiguiente();
-            this.tamaño -= 2;
+            this.size -= 2;
         }   
         return frames;
     }
@@ -42,13 +42,13 @@ public class Cola {
         if (tieneDosFrames()) {
             frames[0] = primero;
             frames[1] = primero.getSiguiente();
-            this.tamaño -= 2;
+            this.size -= 2;
         }   
         return frames;
     }
 
     private boolean tieneDosFrames(){
-        return tamaño>=2;
+        return size>=2;
     }
     
 }
