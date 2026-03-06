@@ -26,29 +26,29 @@ public class Cola {
     }
 
     public Frame[] dequeue(){
-        Frame[] frames = new Frame[2];
-        if (tieneDosFrames()) {
-            frames[0] = primero;
-            primero = primero.getSiguiente();
-            frames[1] = primero;
-            primero = primero.getSiguiente();
+        Frame[] frames = obtenerDosPrimeros();
+        if (frames[0] != null && frames[1] != null) {
+            primero = primero.getSiguiente().getSiguiente();
             this.tamaño -= 2;
-        }   
+        }
         return frames;
     }
 
     public Frame[] peek(){
+        return obtenerDosPrimeros();
+    }
+
+    private Frame[] obtenerDosPrimeros(){
         Frame[] frames = new Frame[2];
         if (tieneDosFrames()) {
             frames[0] = primero;
             frames[1] = primero.getSiguiente();
-            this.tamaño -= 2;
-        }   
+        }
         return frames;
     }
 
     private boolean tieneDosFrames(){
-        return tamaño>=2;
+        return tamaño >= 2;
     }
     
 }
