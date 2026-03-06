@@ -42,7 +42,6 @@ public class Cola {
         if (tieneDosFrames()) {
             frames[0] = primero;
             frames[1] = primero.getSiguiente();
-            this.tamaño -= 2;
         }   
         return frames;
     }
