@@ -68,12 +68,9 @@ public class RellenoInundacion {
             "....................................................."
     };
 
-    private static int altura;
-    private static int anchura;
-
     private static char[][] crearImagenEjemplo(String[] imagenOriginal) {
-        altura = imagenOriginal.length;
-        anchura = imagenOriginal[0].length();
+        int altura = imagenOriginal.length;
+        int anchura = imagenOriginal[0].length();
 
         char[][] imagen = new char[altura][anchura];
 
